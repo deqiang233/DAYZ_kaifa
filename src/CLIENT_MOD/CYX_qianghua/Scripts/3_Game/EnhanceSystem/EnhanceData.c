@@ -74,6 +74,9 @@ class EnhanceDisplayInfo
     string ProtectionCardName;
     int ProtectionCardQuantity;
     ref array<ref EnhanceMaterial> RequiredMaterials;
+    bool CanRefine;
+    ref array<ref EnhanceMaterial> RefineRequiredMaterials;
+    float RefineMultiplier;
 
     void EnhanceDisplayInfo()
     {
@@ -82,6 +85,9 @@ class EnhanceDisplayInfo
         ProtectionCardQuantity = 0;
         HasData = false;
         ErrorMessage = "";
+        CanRefine = false;
+        RefineRequiredMaterials = new array<ref EnhanceMaterial>();
+        RefineMultiplier = 1.0;
     }
 
     bool ReadFromContext(ParamsReadContext ctx, int version)
@@ -96,6 +102,9 @@ class EnhanceDisplayInfo
         if (!ctx.Read(RequiredMaterials)) return false;
         if (!ctx.Read(HasData)) return false;
         if (!ctx.Read(ErrorMessage)) return false;
+        if (!ctx.Read(CanRefine)) return false;
+        if (!ctx.Read(RefineRequiredMaterials)) return false;
+        if (!ctx.Read(RefineMultiplier)) return false;
         return true;
     }
 
@@ -111,6 +120,9 @@ class EnhanceDisplayInfo
         if (!ctx.Write(RequiredMaterials)) return false;
         if (!ctx.Write(HasData)) return false;
         if (!ctx.Write(ErrorMessage)) return false;
+        if (!ctx.Write(CanRefine)) return false;
+        if (!ctx.Write(RefineRequiredMaterials)) return false;
+        if (!ctx.Write(RefineMultiplier)) return false;
         return true;
     }
 }

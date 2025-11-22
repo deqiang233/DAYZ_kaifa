@@ -11,6 +11,7 @@ modded class PlayerBase
 
         Param2<string, bool> enhanceRequest;
         Param1<string> infoRequest;
+        Param1<string> refineRequest;
 
         if (rpc_type == EnhanceRPC.RPC_ENHANCE_REQUEST)
         {
@@ -34,7 +35,7 @@ modded class PlayerBase
 
             string requestType = infoRequest.param1;
             EnhanceConfigManager.LoadConfig();
-            EnhanceDisplayInfo info = EnhanceConfigManager.BuildDisplayInfo(requestType);
+            EnhanceDisplayInfo info = EnhanceConfigManager.BuildDisplayInfo(requestType, this);
             if (!info)
             {
                 string errorMessage = "❌ 未找到该物品的强化配置: " + requestType;
@@ -59,6 +60,17 @@ modded class PlayerBase
             }
             Debug.Log("[CYX_ENHANCE][SERVER] Sending info response for " + requestType + " (hasData=" + hasDataText + ")", "CYX_ENHANCE");
             this.RPCSingleParam(EnhanceRPC.RPC_ITEM_INFO_RESPONSE, payload, true, target);
+            return;
+        }
+
+        if (rpc_type == EnhanceRPC.RPC_REFINE_REQUEST)
+        {
+            if (ctx.Read(refineRequest))
+            {
+                string refineItemType = refineRequest.param1;
+                EnhanceConfigManager.LoadConfig();
+                RefineProcessor.ProcessRefineRequest(this, refineItemType);
+            }
             return;
         }
     }

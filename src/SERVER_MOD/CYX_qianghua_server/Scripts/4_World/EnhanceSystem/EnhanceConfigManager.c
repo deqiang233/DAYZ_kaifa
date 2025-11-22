@@ -8,6 +8,10 @@ class ItemSettingConfig
     int ProtectionCardQuantity;
     float WeaponDamage;
     float FixedDamageBonus;
+    bool CanRefine;
+    ref array<ref EnhanceMaterial> RefineRequiredMaterials;
+    float RefineDamageMultiplierMin;
+    float RefineDamageMultiplierMax;
 
     void ItemSettingConfig()
     {
@@ -19,6 +23,10 @@ class ItemSettingConfig
         ProtectionCardQuantity = 0;
         WeaponDamage = 0.0;
         FixedDamageBonus = 0.0;
+        CanRefine = false;
+        RefineRequiredMaterials = new array<ref EnhanceMaterial>();
+        RefineDamageMultiplierMin = 0.6;
+        RefineDamageMultiplierMax = 1.3;
     }
 }
 
@@ -308,7 +316,7 @@ class EnhanceConfigManager
         return m_Config.DefaultItemSettings.Get(name);
     }
 
-    static EnhanceDisplayInfo BuildDisplayInfo(string itemType)
+    static EnhanceDisplayInfo BuildDisplayInfo(string itemType, PlayerBase player = null)
     {
         EnhanceItem item = FindItem(itemType);
         if (!item || !item.LevelConfig)
@@ -382,6 +390,40 @@ class EnhanceConfigManager
             info.ProtectionCardQuantity = item.LevelConfig.ProtectionCardQuantity;
         }
 
+        // 检查洗练配置 - 使用 ItemSetting 而不是 itemType
+        ItemSettingConfig refineConfig = GetSetting(item.ItemSetting);
+        if (refineConfig && refineConfig.CanRefine)
+        {
+            info.CanRefine = true;
+            info.RefineRequiredMaterials = CloneMaterials(refineConfig.RefineRequiredMaterials);
+            Debug.Log("[CYX_ENHANCE][SERVER] BuildDisplayInfo: CanRefine=true, RefineRequiredMaterials count=" + refineConfig.RefineRequiredMaterials.Count().ToString(), "CYX_ENHANCE");
+        }
+        else
+        {
+            info.CanRefine = false;
+            info.RefineRequiredMaterials = new array<ref EnhanceMaterial>();
+            if (refineConfig)
+            {
+                Debug.Log("[CYX_ENHANCE][SERVER] BuildDisplayInfo: refineConfig found but CanRefine=false", "CYX_ENHANCE");
+            }
+            else
+            {
+                Debug.Log("[CYX_ENHANCE][SERVER] BuildDisplayInfo: refineConfig not found for ItemSetting=" + item.ItemSetting, "CYX_ENHANCE");
+            }
+        }
+
+        // 获取玩家的洗练倍率
+        if (player)
+        {
+            float refineMultiplier = PlayerRefineDataManager.GetRefinedWeaponMultiplier(player, itemType);
+            info.RefineMultiplier = refineMultiplier;
+            Debug.Log("[CYX_ENHANCE][SERVER] BuildDisplayInfo: RefineMultiplier=" + refineMultiplier.ToString() + " for itemType=" + itemType, "CYX_ENHANCE");
+        }
+        else
+        {
+            info.RefineMultiplier = 1.0;
+        }
+
         info.HasData = true;
         info.ErrorMessage = "";
 
@@ -395,6 +437,7 @@ class EnhanceConfigManager
         info.DisplayName = itemType;
         info.HasData = false;
         info.ErrorMessage = message;
+        info.RefineMultiplier = 1.0;
         return info;
     }
 
@@ -491,6 +534,28 @@ class EnhanceConfigManager
         }
 
         return output;
+    }
+
+    // 获取洗练配置
+    static ItemSettingConfig GetRefineConfig(string itemType)
+    {
+        if (!m_Config || !m_Config.DefaultItemSettings || itemType == "")
+        {
+            return null;
+        }
+
+        if (!m_Config.DefaultItemSettings.Contains(itemType))
+        {
+            return null;
+        }
+
+        ItemSettingConfig setting = m_Config.DefaultItemSettings.Get(itemType);
+        if (setting && setting.CanRefine)
+        {
+            return setting;
+        }
+
+        return null;
     }
 }
 

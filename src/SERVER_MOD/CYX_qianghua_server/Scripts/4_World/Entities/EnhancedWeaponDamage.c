@@ -200,6 +200,31 @@ void DelayedDamageCheckCallback(DelayedDamageCheck checkData)
     ApplyEnhancedWeaponDamage(target, actualDamage, checkData.damageType, checkData.source, checkData.component, checkData.dmgZone, checkData.ammo, checkData.modelPos, checkData.speedCoef);
 }
 
+// 应用洗练倍率伤害（当没有强化配置但有洗练倍率时）
+void ApplyRefineDamageMultiplier(EntityAI target, float originalDamage, float multiplier)
+{
+    if (!target || originalDamage <= 0.0 || multiplier <= 0.0)
+    {
+        return;
+    }
+
+    float healthBefore = target.GetHealth("", "Health");
+    if (healthBefore <= 0.0)
+    {
+        return;
+    }
+
+    // 计算洗练后的伤害差值
+    float refinedDamage = originalDamage * multiplier;
+    float damageDiff = refinedDamage - originalDamage;
+
+    if (damageDiff != 0.0)
+    {
+        target.AddHealth("", "Health", -damageDiff);
+        Print("[CYX_ENHANCE] 洗练倍率应用: 原始伤害=" + originalDamage.ToString() + ", 倍率=" + multiplier.ToString() + ", 最终伤害=" + refinedDamage.ToString() + ", 调整=" + damageDiff.ToString());
+    }
+}
+
 // 查找武器类型对应的强化等级配置
 EnhanceLevel FindWeaponEnhanceLevel(string weaponType)
 {
@@ -250,10 +275,23 @@ void ApplyEnhancedWeaponDamage(EntityAI target, float actualDamage, int damageTy
     
     Print("[CYX_ENHANCE] 检测到武器攻击: " + weaponType);
     
+    // 检查洗练倍率
+    float refineMultiplier = 1.0;
+    if (weapon.HasRefineData())
+    {
+        refineMultiplier = weapon.GetRefineDamageMultiplier();
+        Print("[CYX_ENHANCE] 武器洗练倍率: " + refineMultiplier.ToString());
+    }
+    
     // 查找该武器类型对应的强化等级配置
     EnhanceLevel levelConfig = FindWeaponEnhanceLevel(weaponType);
     if (!levelConfig)
     {
+        // 即使没有强化配置，如果有洗练倍率，也需要应用
+        if (refineMultiplier != 1.0)
+        {
+            ApplyRefineDamageMultiplier(target, actualDamage, refineMultiplier);
+        }
         Print("[CYX_ENHANCE] 未找到武器强化配置: " + weaponType);
         return;
     }
@@ -268,15 +306,27 @@ void ApplyEnhancedWeaponDamage(EntityAI target, float actualDamage, int damageTy
         return;
     }
     
-    // 如果没有配置固定伤害加成，不修改伤害
+    // 如果没有配置固定伤害加成，但如果有洗练倍率，也需要应用
     if (levelConfig.FixedDamageBonus == 0.0)
     {
+        if (refineMultiplier != 1.0)
+        {
+            ApplyRefineDamageMultiplier(target, actualDamage, refineMultiplier);
+        }
         Print("[CYX_ENHANCE] FixedDamageBonus为0，跳过伤害加成");
         return;
     }
     
     // 使用实际造成的伤害值（从血量差值计算得出）
     float actualHealthDamage = actualDamage;
+    
+    // 应用洗练倍率到实际伤害
+    if (refineMultiplier != 1.0)
+    {
+        float originalDamage = actualHealthDamage;
+        actualHealthDamage = actualHealthDamage * refineMultiplier;
+        Print("[CYX_ENHANCE] 洗练倍率应用: " + originalDamage.ToString() + " * " + refineMultiplier.ToString() + " = " + actualHealthDamage.ToString());
+    }
     
     // 如果实际伤害为0或负数，说明没有造成伤害，跳过
     if (actualHealthDamage <= 0.0)
@@ -293,6 +343,7 @@ void ApplyEnhancedWeaponDamage(EntityAI target, float actualDamage, int damageTy
     }
     
     // 计算减伤系数：实际伤害 / 基础伤害（WeaponDamage）
+    // 注意：这里使用的是应用洗练倍率后的伤害
     // 例如：WeaponDamage = 100（子弹基础伤害），实际伤害 = 45，减伤系数 = 45/100 = 0.45
     // 例如：WeaponDamage = 100，实际伤害 = 55（打腿部），减伤系数 = 55/100 = 0.55
     // 例如：WeaponDamage = 100，实际伤害 = 20（打甲上），减伤系数 = 20/100 = 0.2
@@ -324,6 +375,7 @@ void ApplyEnhancedWeaponDamage(EntityAI target, float actualDamage, int damageTy
     Print("========================================");
     Print("[CYX_ENHANCE] 强化武器伤害计算详情:");
     Print("武器类型: " + weaponType);
+    Print("洗练倍率: " + refineMultiplier.ToString());
     Print("WeaponDamage (基础伤害): " + levelConfig.WeaponDamage.ToString());
     Print("ActualDamage (实际伤害，从血量差值计算): " + actualHealthDamage.ToString());
     Print("ReductionRatio (减伤比例): " + damageReductionRatio.ToString());

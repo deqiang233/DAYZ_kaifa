@@ -24,7 +24,14 @@ modded class MissionGameplay
 
     private void TryOpenEnhanceMenu()
     {
-        if (GetGame().GetUIManager().GetMenu())
+        UIManager ui = GetGame().GetUIManager();
+        if (!ui)
+        {
+            Print("[CYX_ENHANCE] ERROR: UIManager is null");
+            return;
+        }
+        
+        if (ui.GetMenu())
         {
             PlayerBase player = PlayerBase.Cast(GetGame().GetPlayer());
             if (player)
@@ -34,8 +41,27 @@ modded class MissionGameplay
             return;
         }
 
+        Print("[CYX_ENHANCE] Creating new EnhanceMenu instance");
         m_EnhanceMenu = new EnhanceMenu();
-        GetGame().GetUIManager().ShowScriptedMenu(m_EnhanceMenu, null);
+        
+        if (!m_EnhanceMenu)
+        {
+            Print("[CYX_ENHANCE] ERROR: Failed to create EnhanceMenu instance");
+            return;
+        }
+        
+        Print("[CYX_ENHANCE] Showing EnhanceMenu");
+        ui.ShowScriptedMenu(m_EnhanceMenu, null);
+        
+        // 验证菜单是否成功打开
+        if (ui.GetMenu() == m_EnhanceMenu)
+        {
+            Print("[CYX_ENHANCE] Menu successfully opened");
+        }
+        else
+        {
+            Print("[CYX_ENHANCE] WARNING: Menu may not have opened correctly");
+        }
     }
 }
 

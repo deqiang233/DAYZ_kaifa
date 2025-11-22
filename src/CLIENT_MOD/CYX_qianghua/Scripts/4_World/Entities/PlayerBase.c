@@ -11,6 +11,7 @@ modded class PlayerBase
 
         Param4<bool, string, int, string> enhanceResult;
         Param1<ref EnhanceDisplayInfo> infoResponse;
+        Param3<bool, string, float> refineResult;
 
         if (rpc_type == EnhanceRPC.RPC_ENHANCE_RESULT)
         {
@@ -49,6 +50,31 @@ modded class PlayerBase
             }
 
             EnhanceMenuBridge.HandleInfoResponse(infoResponse.param1);
+            return;
+        }
+
+        if (rpc_type == EnhanceRPC.RPC_REFINE_RESULT)
+        {
+            if (ctx.Read(refineResult))
+            {
+                bool refineSuccess = refineResult.param1;
+                string refineMessage = refineResult.param2;
+                float multiplier = refineResult.param3;
+
+                if (refineMessage != "")
+                {
+                    MessageImportant(refineMessage);
+                }
+
+                if (refineSuccess)
+                {
+                    EnhanceEffects.PlaySuccessEffect(this);
+                }
+                else
+                {
+                    EnhanceEffects.PlayFailureEffect(this);
+                }
+            }
             return;
         }
     }
