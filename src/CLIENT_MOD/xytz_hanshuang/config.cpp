@@ -1516,18 +1516,6 @@ class cfgAmmo
 		cartridge="FxCartridge_762";
 		round="FxRound_762";
 		spawnPileType="CYX_Ammo_100";
-		hit=9;
-		indirectHit=0;
-		indirectHitRange=0;
-		caliber=5;
-		deflecting=30;
-		airFriction=-0.00000008;
-		typicalSpeed=3000;
-		initSpeed=2900;
-		weight=0.0000000004;
-		tracerScale=1.2;
-		tracerStartTime=0.075000003;
-		tracerEndTime=11;
 		class DamageApplied
 		{
 			type="Projectile";

@@ -6,6 +6,8 @@ class ItemSettingConfig
     string ProtectionCardName;
     string ProtectionCardItem;
     int ProtectionCardQuantity;
+    float WeaponDamage;
+    float FixedDamageBonus;
 
     void ItemSettingConfig()
     {
@@ -15,6 +17,8 @@ class ItemSettingConfig
         ProtectionCardName = "";
         ProtectionCardItem = "";
         ProtectionCardQuantity = 0;
+        WeaponDamage = 0.0;
+        FixedDamageBonus = 0.0;
     }
 }
 
@@ -29,6 +33,8 @@ class EnhanceLevel
     ref array<ref EnhanceResultItem> SuccessOutput;
     ref array<ref EnhanceResultItem> FailureOutput;
     ref array<ref EnhanceResultItem> ProtectionCardOutput;
+    float WeaponDamage;
+    float FixedDamageBonus;
 
     void EnhanceLevel()
     {
@@ -41,6 +47,8 @@ class EnhanceLevel
         ProtectionCardItem = "";
         ProtectionCardName = "";
         ProtectionCardQuantity = 0;
+        WeaponDamage = 0.0;
+        FixedDamageBonus = 0.0;
     }
 }
 
@@ -245,6 +253,8 @@ class EnhanceConfigManager
             level.ProtectionCardItem = setting.ProtectionCardItem;
             level.ProtectionCardName = setting.ProtectionCardName;
             level.ProtectionCardQuantity = setting.ProtectionCardQuantity;
+            level.WeaponDamage = setting.WeaponDamage;
+            level.FixedDamageBonus = setting.FixedDamageBonus;
             level.RequiredMaterials = CloneMaterials(setting.RequiredMaterials);
             
             int levelMaterialsCount = 0;
@@ -386,6 +396,15 @@ class EnhanceConfigManager
         info.HasData = false;
         info.ErrorMessage = message;
         return info;
+    }
+
+    static EnhanceConfig GetConfig()
+    {
+        if (!m_Config)
+        {
+            LoadConfig();
+        }
+        return m_Config;
     }
 
     static EnhanceItem FindItem(string itemType)
