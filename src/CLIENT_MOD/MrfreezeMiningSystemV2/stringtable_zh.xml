@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StringTable>
+	<!-- ========== 设备类 ========== -->
+	<String ID="STR_FREEZE_ANVIL">铁砧</String>
+	<String ID="STR_FREEZE_ANVIL_STATIC">铁砧（静态）</String>
+	<String ID="STR_FREEZE_ANVIL_KIT">铁砧套件</String>
+	<String ID="STR_FREEZE_FURNACE">熔炉</String>
+	<String ID="STR_FREEZE_FURNACE_STATIC">熔炉（静态）</String>
+	<String ID="STR_FREEZE_FURNACE_KIT">熔炉套件</String>
+	<String ID="STR_FREEZE_GRINDING_STONE">磨石</String>
+	<String ID="STR_FREEZE_GRINDING_STONE_STATIC">磨石（静态）</String>
+	<String ID="STR_FREEZE_GRINDING_STONE_KIT">磨石套件</String>
+	<String ID="STR_FREEZE_GRINDING_STONE_WHEEL">砂轮</String>
+	<String ID="STR_FREEZE_HAMMER">锻造锤</String>
+	<String ID="STR_FREEZE_PROPANE_CANISTER">丙烷罐</String>
+	
+	<!-- ========== 矿石类 ========== -->
+	<String ID="STR_FREEZESTONE_COPPER">铜矿石</String>
+	<String ID="STR_FREEZESTONE_TIN">锡矿石</String>
+	<String ID="STR_FREEZESTONE_SILVER">银矿石</String>
+	<String ID="STR_FREEZESTONE_GOLD">金矿石</String>
+	<String ID="STR_FREEZESTONE_IRON">铁矿石</String>
+	<String ID="STR_FREEZESTONE_SULPHUR">硫矿石</String>
+	<String ID="STR_FREEZESTONE_URANIUM">铀矿石</String>
+	
+	<!-- ========== 金属块类 ========== -->
+	<String ID="STR_FREEZE_BAR_COPPER">铜锭</String>
+	<String ID="STR_FREEZE_BAR_TIN">锡锭</String>
+	<String ID="STR_FREEZE_BAR_SILVER">银锭</String>
+	<String ID="STR_FREEZE_BAR_GOLD">金锭</String>
+	<String ID="STR_FREEZE_BAR_IRON">铁锭</String>
+	<String ID="STR_FREEZE_BAR_URANIUM">铀锭</String>
+	
+	<!-- ========== 特殊金属锭 ========== -->
+	<String ID="STR_FREEZE_BAR_ADAMANTITE">精金锭</String>
+	<String ID="STR_FREEZE_BAR_COBALT">钴锭</String>
+	<String ID="STR_FREEZE_BAR_CRIMANT">红金属锭</String>
+	<String ID="STR_FREEZE_BAR_ENCHANTED">附魔金属锭</String>
+	<String ID="STR_FREEZE_BAR_ERIDIUM">铱锭</String>
+	
+	<!-- ========== 等级1 - 有瑕疵的融合金属锭 ========== -->
+	<String ID="STR_FREEZE_BAR_BRONZE_FLAWED">青铜锭（有瑕疵）</String>
+	<String ID="STR_FREEZE_BAR_STEEL_FLAWED">钢锭（有瑕疵）</String>
+	<String ID="STR_FREEZE_BAR_ELECTRUM_FLAWED">琥珀金锭（有瑕疵）</String>
+	<String ID="STR_FREEZE_BAR_COMPOSITE_FLAWED">复合材料锭（有瑕疵）</String>
+	<String ID="STR_FREEZE_BAR_CRYSTAL_FLAWED">水晶锭（有瑕疵）</String>
+	<String ID="STR_FREEZE_BAR_PRISMATIC_FLAWED">棱镜材料锭（有瑕疵）</String>
+	<String ID="STR_FREEZE_BAR_VOID_FLAWED">虚空材料锭（有瑕疵）</String>
+	<String ID="STR_FREEZE_BAR_RUBY_FLAWED">红宝石锭（有瑕疵）</String>
+	
+	<!-- ========== 等级2 - 标准融合金属锭 ========== -->
+	<String ID="STR_FREEZE_BAR_BRONZE_STANDARD">青铜锭（标准）</String>
+	<String ID="STR_FREEZE_BAR_STEEL_STANDARD">钢锭（标准）</String>
+	<String ID="STR_FREEZE_BAR_ELECTRUM_STANDARD">琥珀金锭（标准）</String>
+	<String ID="STR_FREEZE_BAR_COMPOSITE_STANDARD">复合材料锭（标准）</String>
+	<String ID="STR_FREEZE_BAR_CRYSTAL_STANDARD">水晶锭（标准）</String>
+	<String ID="STR_FREEZE_BAR_PRISMATIC_STANDARD">棱镜材料锭（标准）</String>
+	<String ID="STR_FREEZE_BAR_VOID_STANDARD">虚空材料锭（标准）</String>
+	<String ID="STR_FREEZE_BAR_RUBY_STANDARD">红宝石锭（标准）</String>
+	
+	<!-- ========== 等级3 - 完美融合金属锭 ========== -->
+	<String ID="STR_FREEZE_BAR_BRONZE_PERFECT">青铜锭（完美）</String>
+	<String ID="STR_FREEZE_BAR_STEEL_PERFECT">钢锭（完美）</String>
+	<String ID="STR_FREEZE_BAR_ELECTRUM_PERFECT">琥珀金锭（完美）</String>
+	<String ID="STR_FREEZE_BAR_COMPOSITE_PERFECT">复合材料锭（完美）</String>
+	<String ID="STR_FREEZE_BAR_CRYSTAL_PERFECT">水晶锭（完美）</String>
+	<String ID="STR_FREEZE_BAR_PRISMATIC_PERFECT">棱镜材料锭（完美）</String>
+	<String ID="STR_FREEZE_BAR_VOID_PERFECT">虚空材料锭（完美）</String>
+	<String ID="STR_FREEZE_BAR_RUBY_PERFECT">红宝石锭（完美）</String>
+	
+	<!-- ========== 等级4 - 高级融合金属锭 ========== -->
+	<String ID="STR_FREEZE_BAR_CELESTIAL">天界锭</String>
+	<String ID="STR_FREEZE_BAR_INFINITY">无限锭</String>
+	<String ID="STR_FREEZE_BAR_ASCENDANT">升天锭</String>
+	<String ID="STR_FREEZE_BAR_TITANFORGE">泰坦锻造锭</String>
+	
+	<!-- ========== 等级5 - 顶级融合金属锭 ========== -->
+	<String ID="STR_FREEZE_BAR_VOIDSTEEL">虚空钢锭</String>
+	<String ID="STR_FREEZE_BAR_BLOODMETAL">血金属锭</String>
+	
+	<!-- ========== 等级6 - 终极融合金属锭 ========== -->
+	<String ID="STR_FREEZE_BAR_NEXUS">核心锭</String>
+	
+	<!-- ========== 金属块（小） ========== -->
+	<String ID="STR_FREEZE_NUGGET_COPPER">铜块</String>
+	<String ID="STR_FREEZE_NUGGET_TIN">锡块</String>
+	<String ID="STR_FREEZE_NUGGET_SILVER">银块</String>
+	<String ID="STR_FREEZE_NUGGET_GOLD">金块</String>
+	<String ID="STR_FREEZE_NUGGET_IRON">铁块</String>
+	<String ID="STR_FREEZE_NUGGET_URANIUM">铀块</String>
+	
+	<!-- ========== 宝石类 - 原始 ========== -->
+	<String ID="STR_FREEZE_GEM_AMBER">琥珀宝石（原始）</String>
+	<String ID="STR_FREEZE_GEM_AMETHYST">紫水晶（原始）</String>
+	<String ID="STR_FREEZE_GEM_AQUAMARINE">海蓝宝石（原始）</String>
+	<String ID="STR_FREEZE_GEM_FANCYCOLOURDIAMOND">彩色钻石（原始）</String>
+	<String ID="STR_FREEZE_GEM_IOLITE">堇青石（原始）</String>
+	<String ID="STR_FREEZE_GEM_JADE">翡翠（原始）</String>
+	<String ID="STR_FREEZE_GEM_RUBY">红宝石（原始）</String>
+	<String ID="STR_FREEZE_GEM_TURQUOISE">绿松石（原始）</String>
+	
+	<!-- ========== 宝石类 - 有瑕疵 ========== -->
+	<String ID="STR_FREEZE_GEM_AMBER_FLAWED">琥珀宝石（有瑕疵）</String>
+	<String ID="STR_FREEZE_GEM_AMETHYST_FLAWED">紫水晶（有瑕疵）</String>
+	<String ID="STR_FREEZE_GEM_AQUAMARINE_FLAWED">海蓝宝石（有瑕疵）</String>
+	<String ID="STR_FREEZE_GEM_FANCYCOLOURDIAMOND_FLAWED">彩色钻石（有瑕疵）</String>
+	<String ID="STR_FREEZE_GEM_IOLITE_FLAWED">堇青石（有瑕疵）</String>
+	<String ID="STR_FREEZE_GEM_JADE_FLAWED">翡翠（有瑕疵）</String>
+	<String ID="STR_FREEZE_GEM_RUBY_FLAWED">红宝石（有瑕疵）</String>
+	<String ID="STR_FREEZE_GEM_TURQUOISE_FLAWED">绿松石（有瑕疵）</String>
+	
+	<!-- ========== 宝石类 - 标准 ========== -->
+	<String ID="STR_FREEZE_GEM_AMBER_STANDARD">琥珀宝石（标准）</String>
+	<String ID="STR_FREEZE_GEM_AMETHYST_STANDARD">紫水晶（标准）</String>
+	<String ID="STR_FREEZE_GEM_AQUAMARINE_STANDARD">海蓝宝石（标准）</String>
+	<String ID="STR_FREEZE_GEM_FANCYCOLOURDIAMOND_STANDARD">彩色钻石（标准）</String>
+	<String ID="STR_FREEZE_GEM_IOLITE_STANDARD">堇青石（标准）</String>
+	<String ID="STR_FREEZE_GEM_JADE_STANDARD">翡翠（标准）</String>
+	<String ID="STR_FREEZE_GEM_RUBY_STANDARD">红宝石（标准）</String>
+	<String ID="STR_FREEZE_GEM_TURQUOISE_STANDARD">绿松石（标准）</String>
+	
+	<!-- ========== 宝石类 - 完美 ========== -->
+	<String ID="STR_FREEZE_GEM_AMBER_PERFECT">琥珀宝石（完美）</String>
+	<String ID="STR_FREEZE_GEM_AMETHYST_PERFECT">紫水晶（完美）</String>
+	<String ID="STR_FREEZE_GEM_AQUAMARINE_PERFECT">海蓝宝石（完美）</String>
+	<String ID="STR_FREEZE_GEM_FANCYCOLOURDIAMOND_PERFECT">彩色钻石（完美）</String>
+	<String ID="STR_FREEZE_GEM_IOLITE_PERFECT">堇青石（完美）</String>
+	<String ID="STR_FREEZE_GEM_JADE_PERFECT">翡翠（完美）</String>
+	<String ID="STR_FREEZE_GEM_RUBY_PERFECT">红宝石（完美）</String>
+	<String ID="STR_FREEZE_GEM_TURQUOISE_PERFECT">绿松石（完美）</String>
+	
+	<!-- ========== 宝石类 - 切割 ========== -->
+	<String ID="STR_FREEZE_GEM_AMBER_CUT">切割琥珀宝石</String>
+	<String ID="STR_FREEZE_GEM_AMETHYST_CUT">切割紫水晶</String>
+	<String ID="STR_FREEZE_GEM_AQUAMARINE_CUT">切割海蓝宝石</String>
+	<String ID="STR_FREEZE_GEM_FANCYCOLOURDIAMOND_CUT">切割彩色钻石</String>
+	<String ID="STR_FREEZE_GEM_IOLITE_CUT">切割堇青石</String>
+	<String ID="STR_FREEZE_GEM_JADE_CUT">切割翡翠</String>
+	<String ID="STR_FREEZE_GEM_RUBY_CUT">切割红宝石</String>
+	<String ID="STR_FREEZE_GEM_TURQUOISE_CUT">切割绿松石</String>
+	
+	<!-- ========== 其他材料 ========== -->
+	<String ID="STR_FREEZE_POWDER_SULPHUR">硫粉</String>
+	<String ID="STR_FREEZE_REF_SULPHUR">精炼硫</String>
+	
+	<!-- ========== 镐子 ========== -->
+	<String ID="STR_FREEZE_PICKAXE_T1">强化镐（T1）</String>
+	<String ID="STR_FREEZE_PICKAXE_T2">水晶锻造镐（T2）</String>
+	<String ID="STR_FREEZE_PICKAXE_T3">融合核心镐（T3）</String>
+</StringTable>
+

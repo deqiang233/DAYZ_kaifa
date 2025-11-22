@@ -1,0 +1,56 @@
+ImageSetClass {
+ Name "fms_icon_set"
+ RefSize 2046 3558
+ Textures {
+  ImageSetTextureClass {
+   mpix 1
+   path "MrfreezeMiningSystemV2/ImageSets/fms_icons.edds"
+  }
+ }
+ Images {
+  ImageSetDefClass fms_propanecanister_icon {
+   Name "fms_propanecanister_icon"
+   Pos 25 25
+   Size 170 170
+   Flags 0
+  }
+  ImageSetDefClass fms_propanepipe_icon {
+   Name "fms_propanepipe_icon"
+   Pos 240 25
+   Size 170 170
+   Flags 0
+  }
+  ImageSetDefClass fms_tongs_icon {
+   Name "fms_tongs_icon"
+   Pos 690 25
+   Size 170 170
+   Flags 0
+  }
+  ImageSetDefClass fms_hammer_icon {
+   Name "fms_hammer_icon"
+   Pos 460 25
+   Size 170 170
+   Flags 0
+  }
+  ImageSetDefClass fms_furnace_icon {
+   Name "fms_furnace_icon"
+   Pos 25 250
+   Size 170 170
+   Flags 0
+  }
+  ImageSetDefClass fms_srindstone_icon {
+   Name "fms_srindstone_icon"
+   Pos 240 250
+   Size 170 170
+   Flags 0
+  }
+  ImageSetDefClass fms_srindstonewheel_icon {
+   Name "fms_srindstonewheel_icon"
+   Pos 905 25
+   Size 170 170
+   Flags 0
+  }
+ }
+ Groups {
+ }
+}

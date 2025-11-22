@@ -1,0 +1,570 @@
+FrameWidgetClass RootFrame {
+ visible 1
+ position 0 0
+ size 1 1
+ halign center_ref
+ valign center_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 0
+ vexactsize 0
+ {
+  // 全屏背景 - rgba(0,0,0,0.9) 更深的半透明黑色
+  PanelWidgetClass EnhanceBackground {
+   visible 1
+   ignorepointer 0
+   color 0 0 0 0.9
+   position 0 0
+   size 1 1
+   halign left_ref
+   valign top_ref
+   hexactpos 1
+   vexactpos 1
+   hexactsize 0
+   vexactsize 0
+   priority 10
+   style rover_sim_colorable
+   {
+    FrameWidgetClass MainPanel {
+     visible 1
+     clipchildren 0
+     ignorepointer 1
+     position 0 0
+     size 1 1
+     halign left_ref
+     valign top_ref
+     hexactpos 1
+     vexactpos 1
+     hexactsize 0
+     vexactsize 0
+     {
+      // 顶部左侧 - 装备强化（无边框）
+      TextWidgetClass LeftTitleText {
+       visible 1
+       ignorepointer 1
+       position 50 30
+       size 200 60
+       halign left_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "装备强化"
+       "text halign" center
+       "text valign" center
+       color 255 255 255 255
+       font "gui/fonts/etelkatextpro"
+       "exact text" 1
+       "exact text size" 32
+      }
+      
+      // 顶部中间标题 - CYX强化系统 CoCo制作（红色文字）
+      TextWidgetClass CenterTitleText {
+       visible 1
+       ignorepointer 1
+       position 0 30
+       size 1 60
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 0
+       vexactsize 1
+       text "CYX强化系统 CoCo制作"
+       "text halign" center
+       "text valign" center
+       color 255 255 255 255 
+       font "gui/fonts/etelkatextpro"
+       "exact text" 1
+       "exact text size" 32
+      }
+      
+
+      
+      // 中央装备显示区域（无边框，整体左移）
+      FrameWidgetClass ItemPreviewFrame {
+       visible 1
+       clipchildren 1
+       ignorepointer 1
+       position -250 120
+       size 1000 600
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        // 装备名字（左上角）
+        TextWidgetClass ItemNameLabel {
+         visible 1
+         ignorepointer 1
+         position 50 30
+         size 250 40
+         halign left_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "装备名字"
+         "text halign" left
+         "text valign" center
+         color 255 255 255 255
+         font "gui/fonts/etelkatextpro"
+         "exact text" 1
+         "exact text size" 28
+        }
+        
+        // 物品名称文本（动态显示）
+        TextWidgetClass ItemNameText {
+         visible 1
+         ignorepointer 1
+         position 250 30
+         size 500 40
+         halign left_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text ""
+         "text halign" left
+         "text valign" center
+         color 255 255 255 255
+         font "gui/fonts/etelkatextpro"
+         "exact text" 1
+         "exact text size" 28
+        }
+        
+        // 装备显示位置（中心提示）
+        TextWidgetClass ItemDisplayPositionLabel {
+         visible 1
+         ignorepointer 1
+         position 0 150
+         size 800 50
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "装备显示位置"
+         "text halign" center
+         "text valign" center
+         color 255 255 255 255
+         font "gui/fonts/etelkatextpro"
+         "exact text" 1
+         "exact text size" 32
+        }
+        
+        // 物品预览（覆盖在"装备显示位置"上，放大50%）
+        ItemPreviewWidgetClass ItemPreview {
+         visible 1
+         ignorepointer 1
+         position 0 50
+         size 900 450
+         halign center_ref
+         valign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         modelpos "0.0 0.0 0.0"
+         modelorient "0.0 0.0 0.0"
+         camerapos "0.0 0.0 0.0"
+         cameraorient "0.0 0.0 0.0"
+         fov 0.5
+         "auto_size" 1
+        }
+       }
+      }
+      
+      // 右侧材料面板（无边框，右移）
+      FrameWidgetClass MaterialsPanel {
+       visible 1
+       clipchildren 0
+       ignorepointer 1
+       position 100 120
+       size 450 550
+       halign right_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       {
+        // 强化所需材料标题
+        TextWidgetClass MaterialsTitleText {
+         visible 1
+         ignorepointer 1
+         position 30 20
+         size 450 50
+         halign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "强化所需材料"
+         "text halign" center
+         "text valign" center
+         color 255 255 255 255
+         font "gui/fonts/etelkatextpro"
+         "exact text" 1
+         "exact text size" 28
+        }
+        
+        // 材料列表容器
+       FrameWidgetClass MaterialsListContainer {
+        visible 1
+        clipchildren 1
+        ignorepointer 1
+        position 30 80
+        size 390 400
+        halign left_ref
+        valign top_ref
+        hexactpos 1
+        vexactpos 1
+        hexactsize 1
+        vexactsize 1
+        {
+         // 动态材料列表（用于显示其他材料）- 改为 FrameWidget 以支持绝对定位
+         FrameWidgetClass MaterialsList {
+          visible 1
+          ignorepointer 1
+          position 0 0
+          size 390 400
+          halign left_ref
+          valign top_ref
+          hexactpos 1
+          vexactpos 1
+          hexactsize 1
+          vexactsize 1
+         }
+        }
+       }
+        
+        // 保护区域容器
+        WidgetClass ProtectionContainer {
+         visible 1
+         ignorepointer 1
+         position 30 360
+         size 390 80
+         halign left_ref
+         valign top_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          CheckBoxWidgetClass UseProtectionCheckbox {
+           visible 1
+           ignorepointer 0
+           position 0 0
+           size 24 24
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+          }
+          
+          TextWidgetClass ProtectionStoneText {
+           visible 1
+           ignorepointer 1
+           position 32 -4
+           size 350 32
+           halign left_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           text "保护石: 0/5"
+           "text halign" left
+           "text valign" center
+           color 255 255 255 255
+           font "gui/fonts/etelkatextpro"
+           "exact text" 1
+           "exact text size" 24
+          }
+         }
+        }
+        
+        // 洗练所需材料标题
+        TextWidgetClass RefineMaterialsTitleText {
+         visible 1
+         ignorepointer 1
+         position 30 290
+         size 450 50
+         halign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         text "洗练所需材料"
+         "text halign" center
+         "text valign" center
+         color 255 255 255 255
+         font "gui/fonts/etelkatextpro"
+         "exact text" 1
+         "exact text size" 28
+        }
+        
+        // 洗练材料列表容器
+        WrapSpacerWidgetClass RefineMaterialsListContainer {
+         visible 1
+         ignorepointer 1
+         position 30 350
+         size 390 200
+         halign left_ref
+         valign top_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          // 洗练材料项 - 石头
+          TextWidgetClass RefineMaterialStoneText {
+           visible 1
+           ignorepointer 1
+           position 0 0
+           size 390 40
+           halign left_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           text "石头: 0/0"
+           "text halign" left
+           "text valign" center
+           color 255 255 255 255
+           font "gui/fonts/etelkatextpro"
+           "exact text" 1
+           "exact text size" 24
+          }
+          
+          // 洗练材料项 - 钉子
+          TextWidgetClass RefineMaterialNailsText {
+           visible 1
+           ignorepointer 1
+           position 0 50
+           size 390 40
+           halign left_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           text "钉子: 0/0"
+           "text halign" left
+           "text valign" center
+           color 255 255 255 255
+           font "gui/fonts/etelkatextpro"
+           "exact text" 1
+           "exact text size" 24
+          }
+          
+          // 洗练材料项 - 苹果
+          TextWidgetClass RefineMaterialAppleText {
+           visible 1
+           ignorepointer 1
+           position 0 100
+           size 390 40
+           halign left_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           text "苹果: 0/0"
+           "text halign" left
+           "text valign" center
+           color 255 255 255 255
+           font "gui/fonts/etelkatextpro"
+           "exact text" 1
+           "exact text size" 24
+          }
+         }
+        }
+        
+        // 按钮区域（在右侧面板内，居中，下移）
+        FrameWidgetClass ButtonsPanel {
+         visible 1
+         clipchildren 0
+         ignorepointer 1
+         position 0 560
+         size 350 230
+         halign center_ref
+         hexactpos 1
+         vexactpos 1
+         hexactsize 1
+         vexactsize 1
+         {
+          // 开始强化按钮（无边框）
+          ButtonWidgetClass EnhanceButton {
+           visible 1
+           clipchildren 0
+           position 0 0
+           size 350 60
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           style Empty
+           {
+            TextWidgetClass EnhanceButtonText {
+             visible 1
+             ignorepointer 1
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "开始强化"
+             "text halign" center
+             "text valign" center
+             color 255 255 255 255
+             font "gui/fonts/etelkatextpro"
+             "exact text" 1
+             "exact text size" 28
+            }
+           }
+          }
+          
+          // 取消强化按钮（无边框）
+          ButtonWidgetClass CloseButtonEnhance {
+           visible 1
+           clipchildren 0
+           position 0 80
+           size 350 60
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           style Empty
+           {
+            TextWidgetClass CloseButtonEnhanceText {
+             visible 1
+             ignorepointer 1
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "取消强化"
+             "text halign" center
+             "text valign" center
+             color 255 255 255 255
+             font "gui/fonts/etelkatextpro"
+             "exact text" 1
+             "exact text size" 28
+            }
+           }
+          }
+          
+          // 洗练按钮（在强化界面中使用）
+          ButtonWidgetClass RefineButton {
+           visible 0
+           clipchildren 0
+           position 0 160
+           size 350 60
+           halign center_ref
+           valign center_ref
+           hexactpos 1
+           vexactpos 1
+           hexactsize 1
+           vexactsize 1
+           style Empty
+           {
+            TextWidgetClass RefineButtonText {
+             visible 1
+             ignorepointer 1
+             size 1 1
+             halign center_ref
+             valign center_ref
+             hexactpos 1
+             vexactpos 1
+             hexactsize 0
+             vexactsize 0
+             text "洗练武器"
+             "text halign" center
+             "text valign" center
+             color 255 255 255 255
+             font "gui/fonts/etelkatextpro"
+             "exact text" 1
+             "exact text size" 28
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      
+      // 成功率文本（显示在中央框下方，左移，下移150像素）
+      TextWidgetClass SuccessRateText {
+       visible 1
+       ignorepointer 1
+       position -250 800
+       size 600 40
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "强化成功概率: 50%"
+       "text halign" center
+       "text valign" center
+       color 255 255 255 255
+       font "gui/fonts/etelkatextpro"
+       "exact text" 1
+       "exact text size" 24
+      }
+      
+      // 洗练属性文本（显示在成功率下方，往下移更多避免重叠）
+      TextWidgetClass RefineInfoText {
+       visible 1
+       ignorepointer 1
+       position -250 900
+       size 600 40
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "当前洗练: 未洗练"
+       "text halign" center
+       "text valign" center
+       color 255 255 0 255
+       font "gui/fonts/etelkatextpro"
+       "exact text" 1
+       "exact text size" 24
+      }
+      
+      // 警告文字（显示在成功率下方，左移，下移150像素）
+      TextWidgetClass WarningText {
+       visible 1
+       ignorepointer 1
+       position -250 850
+       size 800 50
+       halign center_ref
+       hexactpos 1
+       vexactpos 1
+       hexactsize 1
+       vexactsize 1
+       text "注:强化前请清空装备上的配件等物品,以防被吞!!!"
+       "text halign" center
+       "text valign" center
+       color 255 255 255 255
+       font "gui/fonts/etelkatextpro"
+       "exact text" 1
+       "exact text size" 20
+       wrap 1
+      }
+     }
+    }
+   }
+  }
+ }
+}
+

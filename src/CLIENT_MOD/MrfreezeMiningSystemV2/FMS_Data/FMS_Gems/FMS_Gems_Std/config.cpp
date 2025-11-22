@@ -1,0 +1,167 @@
+class CfgPatches
+{
+	class FMS_Gems_Std
+	{
+		units[]=
+		{
+			"FreezeGem_Jade_Standard",
+			"FreezeGem_Amber_Standard",
+			"FreezeGem_Iolite_Standard",
+			"FreezeGem_Amethyst_Standard",
+			"FreezeGem_Aquamarine_Standard",
+			"FreezeGem_Ruby_Standard",
+			"FreezeGem_Turquoise_Standard",
+			"FreezeGem_FancyColourDiamond_Standard"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Gear_Consumables",
+			"FreezeGem_Base",
+			"FMS_Gems_Cut"
+		};
+	};
+};
+class CfgVehicles
+{
+	class HouseNoDestruct;
+	class FreezeGem_Base;
+	class FreezeGem_Jade_Standard: FreezeGem_Base
+	{
+		scope=2;
+		displayName="标准的翡翠宝石";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		model="\MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Std\Textures_std\FMS_Gem_Jade_std.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Amber_Standard: FreezeGem_Base
+	{
+		scope=2;
+		displayName="标准的琥珀宝石";
+		model="\MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Std\Textures_std\FMS_Gem_Amber_std.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Iolite_Standard: FreezeGem_Base
+	{
+		scope=2;
+		displayName="标准的堇青石宝石";
+		model="\MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Std\Textures_std\FMS_Gem_Iolite_std.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Amethyst_Standard: FreezeGem_Base
+	{
+		scope=2;
+		displayName="标准的紫水晶宝石";
+		model="\MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Std\Textures_std\FMS_Gem_Amethyst_std.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Aquamarine_Standard: FreezeGem_Base
+	{
+		scope=2;
+		displayName="标准的海蓝宝石";
+		model="\MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Std\Textures_std\FMS_Gem_Aquamarine_std.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Ruby_Standard: FreezeGem_Base
+	{
+		scope=2;
+		displayName="标准的红宝石";
+		model="\MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Std\Textures_std\FMS_Gem_Ruby_std.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Turquoise_Standard: FreezeGem_Base
+	{
+		scope=2;
+		displayName="标准的绿松石宝石";
+		model="\MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Std\Textures_std\FMS_Gem_Turquoise_std.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_FancyColourDiamond_Standard: FreezeGem_Base
+	{
+		scope=2;
+		displayName="标准的彩色钻石宝石";
+		model="\MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Std\Textures_std\FMS_Gems_FancyColourDiamond_std.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+};

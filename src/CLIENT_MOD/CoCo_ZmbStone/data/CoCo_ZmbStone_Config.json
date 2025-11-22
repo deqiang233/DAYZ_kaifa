@@ -1,0 +1,27 @@
+{
+	"enabled": 1,
+	"onlyIfPlayerOnObstacle": 1,
+	"defaultZombieCanThrow": 1,
+	"damage": {
+		"health": 2.5,
+		"shock": 15.0,
+		"keepMinimumHealth": 30.0
+	},
+	"throwRate": 5.0,
+	"throwForce": 90.0,
+	"throwDistanceMax": 10.0,
+	"throwDistanceMin": 2.0,
+	"zombieDamageConfigs": {
+		"ZmbM_SoldierNormal_Base": {
+			"health": 5.0,
+			"shock": 25.0,
+			"keepMinimumHealth": 30.0
+		},
+		"ZmbM_Jacket_Base": {
+			"health": 3.5,
+			"shock": 20.0,
+			"keepMinimumHealth": 30.0
+		}
+	}
+}
+

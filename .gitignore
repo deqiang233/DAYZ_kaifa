@@ -1,0 +1,13 @@
+# Ignore everything
+*
+
+# But track the src directory
+!src/
+!src/**
+
+# Don't ignore this file
+!.gitignore
+
+# Don't ignore README files if they exist
+!README*.md
+!LICENSE

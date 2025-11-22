@@ -1,0 +1,149 @@
+class CfgPatches
+{
+	class FMS_Gems_Raw
+	{
+		units[]=
+		{
+			"FreezeGem_Jade",
+			"FreezeGem_Amber",
+			"FreezeGem_Iolite",
+			"FreezeGem_Amethyst",
+			"FreezeGem_Aquamarine",
+			"FreezeGem_Ruby",
+			"FreezeGem_Turquoise",
+			"FreezeGem_FancyColourDiamond"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Gear_Consumables",
+			"FreezeGem_Base"
+		};
+	};
+};
+class CfgVehicles
+{
+	class FreezeGem_Base;
+	class FreezeGem_Jade: FreezeGem_Base
+	{
+		scope=2;
+		displayName="翡翠（原始）";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\FMS_Gems_Raw.p3d";
+		descriptionShort="从宝石节点挖掘获得的宝石。用于DayZ挖矿系统。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\Tectures_Raw\FMS_Gem_Jade_Raw.paa"
+		};
+	};
+	class FreezeGem_Amber: FreezeGem_Base
+	{
+		scope=2;
+		displayName="琥珀宝石（原始）";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\FMS_Gems_Raw.p3d";
+		descriptionShort="从宝石节点挖掘获得的宝石。用于DayZ挖矿系统。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\Tectures_Raw\FMS_Gem_Amber_Raw.paa"
+		};
+	};
+	class FreezeGem_Iolite: FreezeGem_Base
+	{
+		scope=2;
+		displayName="堇青石（原始）";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\FMS_Gems_Raw.p3d";
+		descriptionShort="从宝石节点挖掘获得的宝石。用于DayZ挖矿系统。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\Tectures_Raw\FMS_Gem_Iolite_Raw.paa"
+		};
+	};
+	class FreezeGem_Amethyst: FreezeGem_Base
+	{
+		scope=2;
+		displayName="紫水晶（原始）";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\FMS_Gems_Raw.p3d";
+		descriptionShort="从宝石节点挖掘获得的宝石。用于DayZ挖矿系统。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\Tectures_Raw\FMS_Gem_Amethyst_Raw.paa"
+		};
+	};
+	class FreezeGem_Aquamarine: FreezeGem_Base
+	{
+		scope=2;
+		displayName="海蓝宝石（原始）";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\FMS_Gems_Raw.p3d";
+		descriptionShort="从宝石节点挖掘获得的宝石。用于DayZ挖矿系统。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\Tectures_Raw\FMS_Gem_Aquamarine_Raw.paa"
+		};
+	};
+	class FreezeGem_Ruby: FreezeGem_Base
+	{
+		scope=2;
+		displayName="红宝石（原始）";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\FMS_Gems_Raw.p3d";
+		descriptionShort="从宝石节点挖掘获得的宝石。用于DayZ挖矿系统。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\Tectures_Raw\FMS_Gem_Ruby_Raw.paa"
+		};
+	};
+	class FreezeGem_Turquoise: FreezeGem_Base
+	{
+		scope=2;
+		displayName="绿松石（原始）";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\FMS_Gems_Raw.p3d";
+		descriptionShort="从宝石节点挖掘获得的宝石。用于DayZ挖矿系统。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\Tectures_Raw\FMS_Gem_Turquoise_Raw.paa"
+		};
+	};
+	class FreezeGem_FancyColourDiamond: FreezeGem_Base
+	{
+		scope=2;
+		displayName="彩色钻石（原始）";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\FMS_Gems_Raw.p3d";
+		descriptionShort="从宝石节点挖掘获得的宝石。用于DayZ挖矿系统。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Raw\Tectures_Raw\FMS_Gem_FancyColourDiamond_Raw.paa"
+		};
+	};
+};

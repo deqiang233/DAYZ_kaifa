@@ -1,0 +1,167 @@
+class CfgPatches
+{
+	class FMS_Gems_Perfect
+	{
+		units[]=
+		{
+			"FreezeGem_Jade_Perfect",
+			"FreezeGem_Amber_Perfect",
+			"FreezeGem_Iolite_Perfect",
+			"FreezeGem_Amethyst_Perfect",
+			"FreezeGem_Aquamarine_Perfect",
+			"FreezeGem_Ruby_Perfect",
+			"FreezeGem_Turquoise_Perfect",
+			"FreezeGem_FancyColourDiamond_Perfect"
+		};
+		weapons[]={};
+		requiredVersion=0.1;
+		requiredAddons[]=
+		{
+			"DZ_Data",
+			"DZ_Gear_Consumables",
+			"FreezeGem_Base",
+			"FMS_Gems_Cut"
+		};
+	};
+};
+class CfgVehicles
+{
+	class HouseNoDestruct;
+	class FreezeGem_Base;
+	class FreezeGem_Jade_Perfect: FreezeGem_Base
+	{
+		scope=2;
+		displayName="完美的翡翠宝石";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Perfect\Textures_Perfect\FMS_Gem_Amber_Perfect.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Amber_Perfect: FreezeGem_Base
+	{
+		scope=2;
+		displayName="完美的琥珀宝石";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Perfect\Textures_Perfect\FMS_Gem_Amber_Perfect.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Iolite_Perfect: FreezeGem_Base
+	{
+		scope=2;
+		displayName="完美的堇青石宝石";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Perfect\Textures_Perfect\FMS_Gem_Iolite_Perfect.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Amethyst_Perfect: FreezeGem_Base
+	{
+		scope=2;
+		displayName="完美的紫水晶宝石";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Perfect\Textures_Perfect\FMS_Gem_Amethyst_Perfect.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Aquamarine_Perfect: FreezeGem_Base
+	{
+		scope=2;
+		displayName="完美的海蓝宝石";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Perfect\Textures_Perfect\FMS_Gem_Aquamarine_Perfect.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Ruby_Perfect: FreezeGem_Base
+	{
+		scope=2;
+		displayName="完美的红宝石";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Perfect\Textures_Perfect\FMS_Gem_Ruby_Perfect.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_Turquoise_Perfect: FreezeGem_Base
+	{
+		scope=2;
+		displayName="完美的绿松石宝石";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Perfect\Textures_Perfect\FMS_Gem_Turquoise_Perfect.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+	class FreezeGem_FancyColourDiamond_Perfect: FreezeGem_Base
+	{
+		scope=2;
+		displayName="完美的彩色钻石宝石";
+		model="MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Cut\FMS_Gems_Cut.p3d";
+		descriptionShort="在磨石上切割的宝石。DayZ挖矿系统使用。";
+		hiddenSelections[]=
+		{
+			"gem"
+		};
+		hiddenSelectionsTextures[]=
+		{
+			"MrfreezeMiningSystemV2\FMS_Data\FMS_Gems\FMS_Gems_Perfect\Textures_Perfect\FMS_Gems_FancyColourDiamond_Perfect.paa"
+		};
+		canBeSplit=1;
+		varStackMax=100;
+	};
+};

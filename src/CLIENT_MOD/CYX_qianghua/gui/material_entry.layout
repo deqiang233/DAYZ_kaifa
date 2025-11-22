@@ -1,0 +1,20 @@
+TextWidgetClass MaterialEntryRow {
+ visible 1
+ ignorepointer 1
+ position 0 0
+ size 390 32
+ halign left_ref
+ valign top_ref
+ hexactpos 1
+ vexactpos 1
+ hexactsize 1
+ vexactsize 1
+ text ""
+ "text halign" left
+ "text valign" center
+ color 255 255 255 255
+ font "gui/fonts/etelkatextpro"
+ "exact text" 1
+ "exact text size" 24
+}
+
