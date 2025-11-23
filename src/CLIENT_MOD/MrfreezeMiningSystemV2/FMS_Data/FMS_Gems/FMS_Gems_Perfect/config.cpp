@@ -129,6 +129,16 @@ class CfgVehicles
 		};
 		canBeSplit=1;
 		varStackMax=100;
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=100;
+				};
+			};
+		};
 	};
 	class FreezeGem_Turquoise_Perfect: FreezeGem_Base
 	{

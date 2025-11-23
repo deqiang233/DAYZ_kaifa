@@ -158,12 +158,27 @@ class CraftRuby extends RecipeBase
 		ItemBase newGem = ItemBase.Cast(GetGame().CreateObjectEx(gemResult, player.GetPosition(), ECE_PLACE_ON_SURFACE));
 		if (newGem)
 		{
-			// FIX: Set quantity to 1 for stackable gems
-			if (newGem.IsSplitable())
-			{
-				newGem.SetQuantity(1);
-			}
 			player.LocalTakeEntityToInventory(InventoryMode.LOCAL, newGem);
+			
+			// FIX: Set quantity to 1 for stackable gems AFTER adding to inventory
+			if (GetGame().IsServer() && newGem && newGem.HasQuantity())
+			{
+				// Set quantity immediately after adding to inventory
+				SetGemQuantity(newGem);
+				// Also use CallLater to ensure quantity is set (in case of timing issues)
+				GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(SetGemQuantity, 50, false, newGem);
+				GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(SetGemQuantity, 200, false, newGem);
+			}
+			
+			// FIX: Set health to 100% for all gem types
+			if (GetGame().IsServer())
+			{
+				// Try to set health immediately
+				SetGemHealth(newGem);
+				// Also use CallLater to set health after item is fully initialized
+				GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(SetGemHealth, 100, false, newGem);
+				GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(SetGemHealth, 500, false, newGem);
+			}
 		}
 		
 		if (GetGame().IsServer())
@@ -177,6 +192,62 @@ class CraftRuby extends RecipeBase
 			{
 				grindingStone.SetGrinding(false);
 			}
+		}
+	}
+	
+	// Helper method to set gem quantity after adding to inventory
+	static void SetGemQuantity(ItemBase gem)
+	{
+		if (!gem || !GetGame().IsServer())
+			return;
+		
+		if (gem.HasQuantity())
+		{
+			int currentQty = gem.GetQuantity();
+			int maxQty = gem.GetQuantityMax();
+			
+			// Set quantity to 1 if it's 0 or invalid
+			if (currentQty <= 0 && maxQty > 0)
+			{
+				gem.SetQuantity(1);
+				gem.SetSynchDirty(); // Sync to ensure quantity is saved
+				
+				// Debug log
+				int newQty = gem.GetQuantity();
+				LoggingUtility.LogDebug("[CraftRuby] SetGemQuantity - Type: " + gem.GetType() + " | MaxQty: " + maxQty + " | Set to: " + newQty);
+			}
+		}
+	}
+	
+	// Helper method to set gem health after initialization
+	static void SetGemHealth(ItemBase gem)
+	{
+		if (!gem || !GetGame().IsServer())
+			return;
+		
+		// Try to get max health - use empty strings as that's the standard way
+		float maxHealth = gem.GetMaxHealth("", "");
+		if (maxHealth <= 0)
+		{
+			maxHealth = gem.GetMaxHealth("GlobalHealth", "Health");
+		}
+		// If maxHealth is still 0 or invalid, use default value of 100
+		if (maxHealth <= 0)
+		{
+			maxHealth = 100;
+		}
+		
+		// Set health to maximum value - try both methods
+		if (maxHealth > 0)
+		{
+			// Use empty strings first as that's the standard way in DayZ
+			gem.SetHealth("", "", maxHealth);
+			// Also try with GlobalHealth as fallback
+			gem.SetHealth("GlobalHealth", "Health", maxHealth);
+			
+			// Debug log
+			float currentHealth = gem.GetHealth("", "");
+			LoggingUtility.LogDebug("[CraftRuby] SetGemHealth - Type: " + gem.GetType() + " | MaxHealth: " + maxHealth + " | CurrentHealth: " + currentHealth);
 		}
 	}
 };
